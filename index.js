@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const http = require('http');
+const userRoutes = require('./routes/userRoutes');
 const { Server } = require('socket.io');
 require('dotenv').config();
 
@@ -38,8 +39,6 @@ io.on('connection', (socket) => {
   });
 });
 
-const userRoutes = require('./routes/userRoutes');
-app.use('/api/users', userRoutes);
 
 
 // ✅ Start server
