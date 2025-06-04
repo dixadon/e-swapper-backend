@@ -50,6 +50,7 @@ router.get('/me', authMiddleware, async (req, res) => {
   const user = await User.findById(req.user.id).select('-password');
   res.json(user);
 });
+const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
 
 module.exports = router;
