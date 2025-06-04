@@ -59,7 +59,7 @@ router.get('/me', authMiddleware, async (req, res) => {
   }
 });
 
-const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+const token = jwt.sign({ id: User._id }, process.env.JWT_SECRET);
 
 
 module.exports = router;
