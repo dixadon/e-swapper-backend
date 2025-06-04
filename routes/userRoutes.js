@@ -44,6 +44,10 @@ router.post('/login', async (req, res) => {
   res.json({ message: 'Login successful', userId: user._id });
 });
 
+router.get('/me', authMiddleware, async (req, res) => {
+  const user = await User.findById(req.user.id).select('-password');
+  res.json(user);
+});
 
 
 module.exports = router;
