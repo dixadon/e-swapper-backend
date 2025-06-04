@@ -60,4 +60,5 @@ io.on('connection', (socket) => {
   });
 });
 
+mongoose.connect("mongodb+srv://admin:yourStrongPassword123@e-swapper.zpfidcw.mongodb.net/e-swapper?retryWrites=true&w=majority&appName=e-swapper");
 server.listen(5000, () => console.log('Server running on port 5000'));
