@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: '*' } });
 
 // ✅ MongoDB URI - use .env or hardcoded fallback
-const mongoUri = process.env.MONGO_URI || "mongodb+srv://admin:yourStrongPassword123@e-swapper.zpfidcw.mongodb.net/e-swapper?retryWrites=true&w=majority&appName=e-swapper";
+const mongoUri = process.env.MONGO_URI || "mongodb+srv://admin2:y3U2V9oqaX2zPUHO@e-swapper.zpfidcw.mongodb.net/e-swapper?retryWrites=true&w=majority&appName=e-swapper";
 
 // ✅ Only ONE mongoose.connect call
 mongoose.connect(mongoUri, {
