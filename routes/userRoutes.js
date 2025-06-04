@@ -1,28 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 router.post('/register', async (req, res) => {
-  const hashed = await bcrypt.hash(req.body.password, 10);
-  const user = await User.create({ ...req.body, password: hashed });
-  res.send(user);
-});
-
-router.post('/login', async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
-  if (!user || !(await bcrypt.compare(req.body.password, user.password))) return res.status(401).send('Invalid');
-  const token = jwt.sign({ id: user._id }, 'secret');
-  res.json({ token });
-});
-
-router.get('/me', async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
-  if (!token) return res.status(401).send('Unauthorized');
-  const decoded = jwt.verify(token, 'secret');
-  const user = await User.findById(decoded.id);
-  res.json(user);
+  try {
+    const { username, password } = req.body;
+    const user = new User({ username, password });
+    await user.save();
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ message: 'Signup failed', error: error.message });
+  }
 });
 
 module.exports = router;
