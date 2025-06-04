@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('/models/User');
+const User = require('../models/User'); // correct relative path
 const bcrypt = require('bcrypt');
 const authMiddleware = require('../middleware/authMiddleware');
 const jwt = require('jsonwebtoken');
