@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const authMiddleware = require('../middleware/authMiddleware');
+
 
 // Registration route
 router.post('/register', async (req, res) => {
