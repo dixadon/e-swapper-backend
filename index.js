@@ -38,5 +38,9 @@ io.on('connection', (socket) => {
   });
 });
 
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
+
+
 // ✅ Start server
 server.listen(5000, () => console.log('🚀 Server running on port 5000'));
