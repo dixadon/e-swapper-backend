@@ -1,0 +1,10 @@
+const express = require('express'), mongoose = require('mongoose'), cors = require('cors'), jwt = require('jsonwebtoken'), dotenv = require('dotenv');
+dotenv.config();
+const app = express();
+app.use(cors());app.use(express.json());
+mongoose.connect(process.env.MONGO_URI).then(()=>console.log('MongoDB connected'));
+const userRoutes = require('./routes/users'), itemRoutes = require('./routes/items'), messageRoutes = require('./routes/messages');
+app.use('/api/users', userRoutes);
+app.use('/api/items', itemRoutes);
+app.use('/api/messages', messageRoutes);
+app.listen(5000,()=>console.log('Server on 5000'));
