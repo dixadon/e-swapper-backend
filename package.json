@@ -1,1 +1,14 @@
-{"name": "e-swapper-backend", "version": "1.0.0", "description": "Backend server for the e-swapper barter-based marketplace", "main": "index.js", "scripts": {"start": "node index.js", "dev": "nodemon index.js"}, "keywords": ["barter", "backend", "marketplace", "nodejs", "express", "mongodb"], "author": "dixadon", "license": "MIT", "dependencies": {"bcryptjs": "^2.4.3", "cors": "^2.8.5", "dotenv": "^16.0.3", "express": "^4.18.2", "jsonwebtoken": "^9.0.0", "mongoose": "^7.2.2", "multer": "^1.4.5-lts.1", "socket.io": "^4.6.1"}, "devDependencies": {"nodemon": "^2.0.22"}}
+
+{
+  "name": "e-swapper-dashboard-backend",
+  "version": "1.0.0",
+  "description": "Backend for e-swapper user dashboard",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
