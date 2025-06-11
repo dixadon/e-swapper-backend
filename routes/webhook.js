@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')('sk_test_51NEXAMPLESECRETKEY');
+const stripe = require('stripe')('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');
 const User = require('../models/User');
 
 router.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
