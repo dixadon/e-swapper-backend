@@ -5,9 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const paymentRoutes = require('./routes/paymentRoutes');
 const webhookRoute = require('./routes/webhook');
+require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2024-04-10'
 });
+
 
 app.use('/api/payment', paymentRoutes);
 app.use('/api/webhook', webhookRoute); // Ensure this uses raw body middleware
