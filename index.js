@@ -3,6 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
+const paymentRoutes = require('./routes/paymentRoutes');
+const webhookRoute = require('./routes/webhook');
+
+app.use('/api/payment', paymentRoutes);
+app.use('/api/webhook', webhookRoute); // Ensure this uses raw body middleware
+
 
 app.use(cors());
 app.use(express.json());
