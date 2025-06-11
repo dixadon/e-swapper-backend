@@ -16,8 +16,8 @@ router.post('/create-checkout-session', async (req, res) => {
       }],
       customer_email: email,
       metadata: { userId },
-      success_url: 'https://your-site.com/membership-success.html',
-      cancel_url: 'https://your-site.com/membership-cancel.html',
+      success_url: 'https://e-swapper.netlify.app/membership-success.html',
+      cancel_url: 'https://e-swapper.netlify.app/membership-cancel.html',
     });
 
     res.json({ id: session.id });
