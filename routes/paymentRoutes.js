@@ -11,7 +11,7 @@ router.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       mode: 'subscription',
       line_items: [{
-        price: 'price_1NXxxEXAMPLE', // Replace with real price ID
+        price: 'price_1RYtOLP93qXLlc6iobWmjoBQ', // Replace with real price ID
         quantity: 1,
       }],
       customer_email: email,
