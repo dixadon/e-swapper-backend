@@ -8,6 +8,9 @@ const webhookRoute = require('./routes/webhook');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2024-04-10'
 });
+const checkoutRoutes = require('./routes/checkout');
+app.use('/api/checkout', checkoutRoutes);
+
 
 
 app.use('/api/payment', paymentRoutes);
