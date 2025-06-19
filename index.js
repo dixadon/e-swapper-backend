@@ -12,6 +12,37 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
 const checkoutRoutes = require('./routes/checkout');
 app.use('/api/checkout', checkoutRoutes);
 
+const server = http.createServer(app);
+
+
+
+// Create Socket.IO server
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST']
+  }
+});
+
+// Test route
+app.get('/', (req, res) => {
+  res.send('✅ Chat backend is running');
+});
+
+// Handle socket connections
+io.on('connection', (socket) => {
+  console.log('🟢 A user connected');
+
+  // Receive and broadcast messages
+  socket.on('message', (msg) => {
+    console.log('Message received:', msg);
+    io.emit('message', msg);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('🔴 A user disconnected');
+  });
+
 
 
 app.use('/api/payment', paymentRoutes);
